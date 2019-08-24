@@ -1,9 +1,10 @@
-Stripe('pk_test_yDSl3OTUI9tlwDeFmCkjVrx900948plMKN');
+Stripe.setPublishableKey('sk_test_p6Nv9sr77LJr8lD5FnOWCumy000Sbg5dwE');
 
 var $form = $('#checkout-form');
 
 $form.submit(function (event) {
     $('#charge-error').addClass('hidden');
+    // to disable the user to not submit another request, where there is another request going on.
     $form.find('button').prop('disabled', true);
     Stripe.card.createToken({
         number: $('#card-number').val(),
